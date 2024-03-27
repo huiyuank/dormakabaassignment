@@ -14,8 +14,20 @@ The main reasons we use BFF pattern are:
 
 However, introducing BFFs also has its costs such as higher complexity in architecture and more codebases to manage and monitor. It needs to be weighed carefully before deciding to be used in projects.
 
-## File structure
-
+## Folder structure
+```
+|- app
+|   |- components // Basic reusable components
+|   |- detail // Detailed door page
+|   |   └── [id] // Slug of door (path param)
+|   |     |- layout.tsx
+|   |     └── page.tsx
+|   |- layout.tsx
+|   |- page.tsx
+|   └── StoreProvider.tsx
+|- lib // Util functions, Redux store and tests
+|- public // Static assets
+```
 
 ## List of libraries used
 - [Next.js](https://nextjs.org/) (bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app))
