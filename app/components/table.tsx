@@ -7,7 +7,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import BasicCell from "./cell";
-import Link from "next/link";
 
 export enum ConnectionStatus {
   Online = "Online",
@@ -42,11 +41,14 @@ export default function BasicTable({
               className="cursor-pointer"
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              {/* <Link href="/"> */}
               {iterator.map((key) => (
-                <BasicCell key={key} identifier={key} value={data[key]} />
+                <BasicCell
+                  key={`${data.id}-${key}`}
+                  link={`/detail/${data.id}`}
+                  identifier={key}
+                  value={data[key]}
+                />
               ))}
-              {/* </Link> */}
             </TableRow>
           ))}
         </TableBody>

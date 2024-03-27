@@ -1,37 +1,44 @@
 import Chip from "@mui/material/Chip";
 import TableCell from "@mui/material/TableCell";
 import { ConnectionStatus } from "./table";
+import Link from "next/link";
 
 interface BasicCellProps {
   identifier: string;
   value: string;
+  link: string;
 }
 
 export default function BasicCell({
   identifier,
   value,
+  link,
 }: BasicCellProps): React.ReactElement {
   if (identifier === "connectionStatus") {
     return value === ConnectionStatus.Online ? (
       <TableCell align="right" key={identifier}>
-        <Chip color="success" />
+        <Link className="block" href={link}>
+          <Chip color="success" />
+        </Link>
       </TableCell>
     ) : (
       <TableCell align="right" key={identifier}>
-        <Chip color="error" />
+        <Link href={link}>
+          <Chip color="error" />
+        </Link>
       </TableCell>
     );
   } else if (identifier === "name") {
     return (
       <TableCell component="th" scope="row">
-        {value}
+        <Link href={link}>{value}</Link>
       </TableCell>
     );
   }
   // Default scenario
   return (
     <TableCell align="right" key={identifier}>
-      {value}
+      <Link href={link}>{value}</Link>
     </TableCell>
   );
 }
