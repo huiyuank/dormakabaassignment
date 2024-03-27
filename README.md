@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Description of application
+Features:
+1. List all doors used a by a real estate company and their buildings
+2. Show detailed information for each door (connection status, update timestamp, etc)
 
-## Getting Started
+## BFF and why we use it
+What is BFF:
+A BFF (Backend for Frontend) is a layer between the FE and an app's various BE services. For each user interface, there is a corresponding BFF which is specifically tailored to provide the data needed for that interface.
 
-First, run the development server:
+The main reasons we use BFF pattern are:
+1. Simplify client-side code - client interfaces with BFF instead of multiple different services
+2. Security - BFF can authenticate users and filter data before it is transmitted to the client
+3. Decoupling - Changes in backend service won't directly affect client
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+However, introducing BFFs also has its costs such as higher complexity in architecture and more codebases to manage and monitor. It needs to be weighed carefully before deciding to be used in projects.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## File structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## List of libraries used
+- [Next.js](https://nextjs.org/) (bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app))
+- [RTK-Query](https://redux-toolkit.js.org/) - state management tool that contains API methods for efficient and simple global store
+- [Material-UI](https://mui.com/material-ui/) - React component library that implements Google's [Material Design](https://m2.material.io/)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
